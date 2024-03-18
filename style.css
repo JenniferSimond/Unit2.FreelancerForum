@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    margin: 100px 500px;
+    border: 1px solid grey;
+    background-color: rgb(230, 173, 211);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+th, td {
+    /* margin: 20px; */
+    padding: 10px 20px;
+    text-align: center;
+}
+
