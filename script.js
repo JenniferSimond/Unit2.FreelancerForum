@@ -5,7 +5,7 @@ const Freelancers = [
   { name: 'Aragorn', occupation: 'Ranger', price: 125 },
   { name: 'Legolas', occupation: 'Archer', price: 150 },
   { name: 'Frodo', occupation: 'Courier', price: 100 },
-  { name: 'Gimli', occupation: 'Ax Men/Minor', price: 200 },
+  { name: 'Gimli', occupation: 'Ax Men/Miner', price: 200 },
   { name: 'Bilbo', occupation: 'Author', price: 75 },
   { name: 'Sauron', occupation: 'Dark Lord', price: 500 },
 ];
