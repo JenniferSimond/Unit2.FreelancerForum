@@ -10,8 +10,7 @@ const Freelancers = [
   { name: 'Sauron', occupation: 'Dark Lord', price: 500 },
 ];
 
-let currentFreelancers = Freelancers.slice(0, 2); //Used slice to get the first 2 items from array
-let nextFreelancerIndex = 2; //This makes sure we start pulling at next index
+let currentFreelancers = Freelancers.slice(0, 2); // Used slice to get the first 2 items from array
 
 const updateFreelancer = () => {
   const tbody = document.getElementById('table-body');
@@ -32,8 +31,9 @@ const updateFreelancer = () => {
 
     tbody.appendChild(tr);
   }
-  updateAveragePrice(); // function called here so the average price updates w/ each
+  updateAveragePrice(); // function called here so the average price updates w/ each new addition
 };
+
 const updateAveragePrice = () => {
   const total = currentFreelancers.reduce(
     (sum, freelancer) => sum + freelancer.price,
@@ -44,15 +44,19 @@ const updateAveragePrice = () => {
 };
 
 const addNewFreelancer = () => {
-  if (nextFreelancerIndex < Freelancers.length) {
-    currentFreelancers.push(Freelancers[nextFreelancerIndex++]);
-    updateFreelancer(); // func called to update table with one new freelancer
+  if (currentFreelancers.length < Freelancers.length) {
+    const remainingFreelancers = Freelancers.filter(
+      (freelancer) => !currentFreelancers.includes(freelancer)
+    );
+    const randomIndex = Math.floor(Math.random() * remainingFreelancers.length);
+    currentFreelancers.push(remainingFreelancers[randomIndex]);
+    updateFreelancer(); // Func called to update table with one new freelancer
   } else {
-    clearInterval(updateFreelancerInterval); // stops adding once full array of objecrs has been added
+    clearInterval(updateFreelancerInterval); // Stops adding once full array of objects has been added
   }
 };
 
-// event listener to do the initial render when dom is loaded
+// Event listener to do the initial render when DOM is loaded
 document.addEventListener('DOMContentLoaded', updateFreelancer);
-// interval set to update every 2 seconds.
-const updateFreelancerInterval = setInterval(addNewFreelancer, 3000);
+// Interval set to update every 2 seconds.
+const updateFreelancerInterval = setInterval(addNewFreelancer, 2000);
